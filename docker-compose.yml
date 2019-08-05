@@ -1,0 +1,18 @@
+version: '2'
+services:
+  postgres:
+    image: athletes-datastore-image
+    container_name: athletes-datastore
+    build: build/db
+    ports:
+      - "5432:5432"
+  web:
+    image: athletes-service-image
+    container_name: athletes-service
+    build: build/libs
+    depends_on:
+      - postgres # athletes-datastore will be started before the athletes-service
+    ports:
+      - "8080:8080"
+    links:
+      - postgres
