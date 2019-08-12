@@ -32,6 +32,20 @@ class Athlete {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String prenom;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
     @Column(nullable = false)
     private String firstName;
 
